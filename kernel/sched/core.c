@@ -2048,7 +2048,7 @@ try_to_wake_up(struct task_struct *p, unsigned int state, int wake_flags,
 	       int sibling_count_hint)
 {
 	unsigned long flags;
-	int cpu, src_cpu, success = 0;
+	int cpu, success = 0;
 #ifdef CONFIG_SMP
 	struct rq *rq;
 	u64 wallclock;
@@ -2291,6 +2291,7 @@ static void __sched_fork(unsigned long clone_flags, struct task_struct *p)
 	init_dl_task_timer(&p->dl);
 	__dl_clear_params(p);
 
+	init_rt_schedtune_timer(&p->rt);
 	INIT_LIST_HEAD(&p->rt.run_list);
 	p->rt.timeout		= 0;
 	p->rt.time_slice	= sched_rr_timeslice;
