@@ -32,8 +32,6 @@
 
 #define MSM_JPEG_NAME "jpeg"
 #define DEV_NAME_LEN 10
-static char devname[DEV_NAME_LEN];
-
 
 static char devname[DEV_NAME_LEN];
 
